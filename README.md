@@ -22,9 +22,12 @@ The repository contains:
 
 ---
 
-## Installation by AI vendor / client
+## Installation by platform (same principle as previous skill releases)
 
-### 1) Claude Code
+### Cursor
+
+Type:
+- Skill (`SKILL.md`)
 
 Install path:
 - `.claude/skills/linkedin-profile-audit/`
@@ -34,58 +37,73 @@ Command example:
 - `cp -R /path/to/repo/* .claude/skills/linkedin-profile-audit/`
 
 Use:
-- `/linkedin-profile-audit`
-
-### 2) Cursor
-
-Cursor reads project skills from `.claude/skills/`.
-
-Install path:
-- `.claude/skills/linkedin-profile-audit/`
-
-Use:
 - Open Cursor chat and run `/linkedin-profile-audit`
 
-### 3) Cline / Roo Code (VS Code family)
+---
 
-Most setups use a project-level `.clinerules/skills/` or a custom skill folder declared in settings.
+### Manus
 
-Recommended install path:
-- `.clinerules/skills/linkedin-profile-audit/`
+Type:
+- Skill upload (`SKILL.md` or folder)
 
-Then either:
-- Register the folder in your Cline/Roo settings, or
-- Place `SKILL.md` where your existing skills are already discovered.
+Install:
+1. Open **Skills** in Manus.
+2. Upload this folder (or `.zip` of it), or upload `SKILL.md`.
+3. Invoke in chat: `/linkedin-profile-audit`.
 
-### 4) Gemini CLI
+---
 
-If your Gemini CLI setup supports skill packs, place the folder in your configured skills directory, for example:
-- `.gemini/skills/linkedin-profile-audit/`
+### ChatGPT
 
-If your setup uses prompt libraries instead of skills:
-- Reference `SKILL.md` as a reusable system prompt file.
+Type:
+- Custom GPT (instructions + optional knowledge files)
 
-### 5) OpenAI Codex CLI / Codex-compatible CLIs
+Install:
+1. Create or edit a Custom GPT.
+2. Paste `SKILL.md` content into GPT Instructions.
+3. Optionally upload:
+   - `references/profile-audit-examples-extracted.txt`
+   - `references/claude-x-linkedin-auditor-docx-extracted.txt`
+4. Use in that GPT chat.
 
-Install path (typical Codex Home):
-- `$CODEX_HOME/skills/linkedin-profile-audit/`
+---
 
-If `CODEX_HOME` is not set, check your CLI docs and place it into that tool's skill directory.
+### Claude (claude.ai)
 
-### 6) Continue.dev
+Type:
+- Project Instructions (and optional Project Knowledge files)
 
-Continue usually works with prompt/config files rather than native "skills".
+Install:
+1. Create/open a Project in claude.ai.
+2. Paste `SKILL.md` into Project Instructions.
+3. Optionally add both files from `references/` as Project Knowledge.
+4. Run audit in this Project.
 
-Two workable options:
-- Put the bundle under `.continue/skills/linkedin-profile-audit/` if your template supports skills.
-- Or add `SKILL.md` content as a named prompt/assistant preset in `.continue/config.*`.
+---
 
-### 7) Windsurf / other Claude-compatible clients
+### Grok
 
-If the client supports Claude-style skills, use:
-- `.claude/skills/linkedin-profile-audit/`
+Type:
+- Custom Instructions / Workspace Instructions
 
-If not, load `SKILL.md` as a reusable instruction preset and keep `references/` nearby.
+Install:
+1. Open **Customize Grok** (or Workspace settings).
+2. Paste `SKILL.md` into instruction field.
+3. Optionally add key excerpts from `references/` in the same instructions or first message.
+4. Start audit in that context.
+
+---
+
+### Gemini
+
+Type:
+- Gem instructions
+
+Install:
+1. Create a Gem.
+2. Paste `SKILL.md` into Gem instructions.
+3. Optionally upload/reference both files from `references/`.
+4. Use this Gem for audits.
 
 ---
 
