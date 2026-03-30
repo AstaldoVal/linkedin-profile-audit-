@@ -1,132 +1,201 @@
-# linkedin-profile-audit (standalone skill bundle)
+# LinkedIn Profile Audit
 
-LinkedIn profile audit skill bundle: onboarding, section-by-section audit, /50 scoring, and actionable rewrites.
+**One workflow. Five sections. Any AI assistant.**
 
-The repository contains:
-- `SKILL.md`
-- `references/SOURCE.md`
-- `references/profile-audit-examples-extracted.txt`
-- `references/claude-x-linkedin-auditor-docx-extracted.txt`
+A ready-to-use LinkedIn profile audit skill and playbook. Use it in **Cursor**, **Manus**, **ChatGPT**, **Claude**, **Grok**, or **ClawdBot** to run a full profile review with onboarding, section-by-section scoring, and rewrites.
 
 ---
 
-## Quick start (generic)
+## What this is
 
-1. Copy this repository files into a folder named `linkedin-profile-audit`.
-2. Place that folder into your assistant's skills directory (see vendor-specific paths below).
-3. Keep this structure intact:
-   - `linkedin-profile-audit/SKILL.md`
-   - `linkedin-profile-audit/references/*`
-4. Restart the client (if needed).
-5. Invoke with `/linkedin-profile-audit` or ask: `Run a LinkedIn profile audit`.
+- **Structured workflow:** onboarding -> assets collection -> section audit -> score (/50) -> rewrites.
+- **Five sections:** Profile picture, Banner, Headline, About, Featured.
+- **Platform-agnostic:** use as a **skill** where supported (Cursor, Manus), or as **Custom GPT / Project / custom instructions** elsewhere.
 
 ---
 
-## Installation by platform (same principle as previous skill releases)
+## Table of contents
+
+- [Installation by platform](#-installation-by-platform)
+- [What's inside the repo](#-whats-inside-the-repo)
+- [How to use](#-how-to-use)
+- [Fallback: one-shot prompt](#-fallback-one-shot-prompt)
+- [License](#-license)
+
+---
+
+## Installation by platform
+
+Choose your assistant and follow the steps.
 
 ### Cursor
 
-Type:
-- Skill (`SKILL.md`)
+| Type | Description |
+|------|-------------|
+| **Skill** | Agent Skills (`SKILL.md`) supported |
 
-Install path:
-- `.claude/skills/linkedin-profile-audit/`
+**Install**
 
-Command example:
-- `mkdir -p .claude/skills/linkedin-profile-audit`
-- `cp -R /path/to/repo/* .claude/skills/linkedin-profile-audit/`
+1. Clone or download this repo.
+2. Copy the repo folder into your Cursor skills directory:
+   - **macOS / Linux:** `~/.cursor/skills/linkedin-profile-audit/`
+   - Or your project-level skills path.
+3. Ensure the folder contains `SKILL.md` and `references/`.
+4. Restart or reload Cursor.
 
-Use:
-- Open Cursor chat and run `/linkedin-profile-audit`
+**Use:** `/linkedin-profile-audit` or "Use the LinkedIn profile audit skill".
+
+**Details:** [platforms/Cursor/README.md](platforms/Cursor/README.md)
 
 ---
 
 ### Manus
 
-Type:
-- Skill upload (`SKILL.md` or folder)
+| Type | Description |
+|------|-------------|
+| **Skill** | Upload folder or `.zip` with `SKILL.md` |
 
-Install:
-1. Open **Skills** in Manus.
-2. Upload this folder (or `.zip` of it), or upload `SKILL.md`.
-3. Invoke in chat: `/linkedin-profile-audit`.
+**Install**
+
+1. In Manus, open **Skills** -> **Upload**.
+2. Select this repo folder (or a `.zip` of it).  
+3. If only one file is accepted, use `SKILL.md`.
+
+**Use:** invoke the skill in chat (for example, `/linkedin-profile-audit`).
+
+**Details:** [platforms/Manus/README.md](platforms/Manus/README.md)
 
 ---
 
 ### ChatGPT
 
-Type:
-- Custom GPT (instructions + optional knowledge files)
+| Type | Description |
+|------|-------------|
+| **Custom GPT** | Instructions + optional Knowledge files |
 
-Install:
-1. Create or edit a Custom GPT.
-2. Paste `SKILL.md` content into GPT Instructions.
-3. Optionally upload:
-   - `references/profile-audit-examples-extracted.txt`
-   - `references/claude-x-linkedin-auditor-docx-extracted.txt`
-4. Use in that GPT chat.
+**Install**
+
+1. In ChatGPT, create/edit a Custom GPT.
+2. In **Instructions**, paste [platforms/ChatGPT/Custom_GPT_Instructions.md](platforms/ChatGPT/Custom_GPT_Instructions.md).
+3. Optionally upload both reference files to **Knowledge**.
+
+**Use:** Open that GPT and ask for a LinkedIn profile audit.
 
 ---
 
 ### Claude (claude.ai)
 
-Type:
-- Project Instructions (and optional Project Knowledge files)
+| Type | Description |
+|------|-------------|
+| **Project** | Project instructions + Knowledge files |
 
-Install:
-1. Create/open a Project in claude.ai.
-2. Paste `SKILL.md` into Project Instructions.
-3. Optionally add both files from `references/` as Project Knowledge.
-4. Run audit in this Project.
+**Install**
+
+1. Create/open a Claude Project.
+2. Paste [platforms/Claude/Project_Instructions.md](platforms/Claude/Project_Instructions.md) into project instructions.
+3. Add reference files as project knowledge (optional but recommended).
+
+**Use:** Run the audit in this project.
 
 ---
 
 ### Grok
 
-Type:
-- Custom Instructions / Workspace Instructions
+| Type | Description |
+|------|-------------|
+| **Custom instructions** | No skill upload |
 
-Install:
-1. Open **Customize Grok** (or Workspace settings).
-2. Paste `SKILL.md` into instruction field.
-3. Optionally add key excerpts from `references/` in the same instructions or first message.
-4. Start audit in that context.
+**Install**
 
----
+1. Open **Customize Grok**.
+2. Paste [platforms/Grok/Custom_Instructions.md](platforms/Grok/Custom_Instructions.md) into instructions.
+3. Save.
 
-### Gemini
-
-Type:
-- Gem instructions
-
-Install:
-1. Create a Gem.
-2. Paste `SKILL.md` into Gem instructions.
-3. Optionally upload/reference both files from `references/`.
-4. Use this Gem for audits.
+**Details:** [platforms/Grok/README.md](platforms/Grok/README.md)
 
 ---
 
-## Validation checklist
+### ClawdBot
 
-- The client can discover the command `/linkedin-profile-audit`.
-- The skill asks onboarding questions one-by-one.
-- The skill reads and references files from `references/`.
-- Full audit returns scores out of 50.
+| Type | Description |
+|------|-------------|
+| **Workaround** | Use custom instructions or pasted playbook |
 
----
+**Install / use**
 
-## Updating sources
+- If custom instructions are supported, paste [platforms/ClawdBot/Custom_Instructions.md](platforms/ClawdBot/Custom_Instructions.md).
+- Otherwise, paste `SKILL.md` in the first message and ask the assistant to follow it.
 
-If your source playbook changes:
-1. Re-extract text into:
-   - `references/profile-audit-examples-extracted.txt`
-   - `references/claude-x-linkedin-auditor-docx-extracted.txt`
-2. Update `SKILL.md` criteria if needed.
-3. Commit and republish.
+**Details:** [platforms/ClawdBot/README.md](platforms/ClawdBot/README.md)
 
 ---
 
-## License / attribution
+## What's inside the repo
 
-Built from user-provided LinkedIn profile audit materials. Redistribute only if you have rights to the source content.
+```
+linkedin-profile-audit/
+├── README.md
+├── SKILL.md
+├── references/
+│   ├── SOURCE.md
+│   ├── profile-audit-examples-extracted.txt
+│   └── claude-x-linkedin-auditor-docx-extracted.txt
+└── platforms/
+    ├── Cursor/
+    │   └── README.md
+    ├── Manus/
+    │   └── README.md
+    ├── ChatGPT/
+    │   └── Custom_GPT_Instructions.md
+    ├── Claude/
+    │   └── Project_Instructions.md
+    ├── Grok/
+    │   ├── README.md
+    │   └── Custom_Instructions.md
+    └── ClawdBot/
+        ├── README.md
+        └── Custom_Instructions.md
+```
+
+---
+
+## How to use
+
+1. Start with onboarding (who you help, goal, scope).
+2. Collect required assets for selected sections.
+3. Run section analysis and scoring.
+4. Provide rewrites and 2 priority actions.
+
+---
+
+## Fallback: one-shot prompt
+
+If you cannot install a skill or project instructions, paste this into your first message:
+
+```
+You are a LinkedIn profile advisor.
+Run onboarding first:
+1) What I do and who I help (template: I / I help / With what / Result)
+2) Main goal on LinkedIn: a) audience b) inbound leads c) profile-to-client conversion d) thought leadership
+3) Focus scope: full audit or selected sections
+
+Ask one question at a time.
+For full audit: request inputs in this order:
+profile picture -> banner (desktop + mobile) -> headline -> about -> featured.
+
+Then audit each chosen section, provide clear fixes, and for full audit output:
+Profile Picture X/10
+Banner X/10
+Headline X/10
+About X/10
+Featured X/10
+TOTAL X/50
+
+Always include concrete rewrites (not only critique) and end with top 2 priority actions.
+```
+
+---
+
+## License
+
+Use and redistribute only if you have rights to the source materials in `references/`.
