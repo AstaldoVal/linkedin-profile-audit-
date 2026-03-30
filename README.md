@@ -2,7 +2,7 @@
 
 **One workflow. Five sections. Any AI assistant.**
 
-A ready-to-use LinkedIn profile audit skill and playbook. Use it in **Cursor**, **Manus**, **ChatGPT**, **Claude**, **Grok**, or **ClawdBot** to run a full profile review with onboarding, section-by-section scoring, and rewrites.
+A ready-to-use LinkedIn profile audit skill and playbook. Use it in **Claude Code**, **Cursor**, **Manus**, **ChatGPT**, **Claude**, **Gemini**, **Grok**, or **ClawdBot** to run a full profile review with onboarding, section-by-section scoring, and rewrites.
 
 ---
 
@@ -27,6 +27,24 @@ A ready-to-use LinkedIn profile audit skill and playbook. Use it in **Cursor**, 
 ## Installation by platform
 
 Choose your assistant and follow the steps.
+
+### Claude Code
+
+| Type | Description |
+|------|-------------|
+| **Skill** | Local skill folder (`.claude/skills/`) |
+
+**Install**
+
+1. Clone or download this repo.
+2. Copy this repo into your project at:
+   - `.claude/skills/linkedin-profile-audit/`
+3. Ensure the folder contains `SKILL.md` and `references/`.
+4. Open Claude Code in that project.
+
+**Use:** `/linkedin-profile-audit`
+
+---
 
 ### Cursor
 
@@ -115,6 +133,22 @@ Choose your assistant and follow the steps.
 
 ---
 
+### Gemini
+
+| Type | Description |
+|------|-------------|
+| **Gem** | Custom Gem instructions |
+
+**Install**
+
+1. Create or edit a Gem in Gemini.
+2. Paste [platforms/Gemini/Custom_Instructions.md](platforms/Gemini/Custom_Instructions.md) into Gem instructions.
+3. Optionally upload both files from `references/`.
+
+**Details:** [platforms/Gemini/README.md](platforms/Gemini/README.md)
+
+---
+
 ### ClawdBot
 
 | Type | Description |
@@ -150,6 +184,9 @@ linkedin-profile-audit/
     ├── Claude/
     │   └── Project_Instructions.md
     ├── Grok/
+    │   ├── README.md
+    │   └── Custom_Instructions.md
+    ├── Gemini/
     │   ├── README.md
     │   └── Custom_Instructions.md
     └── ClawdBot/
