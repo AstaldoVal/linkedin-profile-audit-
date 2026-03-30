@@ -199,3 +199,8 @@ Always include concrete rewrites (not only critique) and end with top 2 priority
 ## License
 
 Use and redistribute only if you have rights to the source materials in `references/`.
+
+## Attribution
+
+- All source materials in `references/` were provided by **Chris Donnelly**, who is the original author of those materials.
+- This skill is an **automation layer** built on top of those reference materials.
